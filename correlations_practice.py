@@ -59,7 +59,6 @@ for key in dbase['elements'][0].keys():
     if (key == 'points_per_game'):
         continue
     if (type(dbase['elements'][0]['{}'.format(key)]) == bool):
-        print(key)
         continue
     try:
         float(dbase['elements'][0]['{}'.format(key)])
@@ -68,8 +67,6 @@ for key in dbase['elements'][0].keys():
         pass
 
 
-
-print(key_list)
 
 numerical_stats = [ [] for i in range(len(key_list)) ] #each list contains values of stat for each player, in correct order
 
