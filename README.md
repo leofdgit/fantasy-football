@@ -1,6 +1,8 @@
 # fantasy-football
 
 The two .txt files are data dumps from the official website's APIs.
+###To run correlations_practice, ensure that the two .txt files are in the same directory as correlations_practice.py.
+
 
 correlations_practice.py looks at stats whose values are numerical and tests which ones most strongly correlate to a high points per game value.
 
