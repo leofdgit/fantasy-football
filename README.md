@@ -9,3 +9,4 @@ correlations_practice.py looks at stats whose values are numerical and tests whi
 ppg_swing_by_team.py computes how points hauls are affected by opponent.
 
 player_histories_farm.py scrapes the relevant API for info on players' previous games.
+###Would be cool to see how it affects defenders, mids and strikers individually.
