@@ -55,6 +55,7 @@ other_db_keys = [x for x in other_db.keys()]
 
 
 key_list = [] ### Create a list of keys - the values associated with keys will be used to get correlations
+              ### The keys we choose must have values that are numerical in order to compute correlations (later: correlation but with discrete variables, e.g. logistic regression)
 for key in dbase['elements'][0].keys():
     if (key == 'points_per_game'):
         continue
