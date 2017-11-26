@@ -70,20 +70,32 @@ for k in range(len(score_tuples)):
     average_swing.append(avg_swg)
 
 
+#id-to-team-name conversion:
+converter = {'1':'Arsenal', '2':'Bournemouth', '3': 'Brighton', '4':'Burnley',
+'5':'Chelsea', '6':'Crystal_Palace', '7':'Everton', '8':'Huddersfield',
+'9': 'Leicester', '10':'Liverpool', '11':'Manchester City', '12':'Manchester United',
+'13':'Newcastle', '14':'Southampton','15':'Spurs','16':'Stoke','17':'Swansea',
+'18':'Watford','19':'West Brom','20':'West Ham'}
 
-#create a list of tuples for average swing, so that we can more clearly see results
-#positive average swing implies the team is easy to play against
+#    WHAT IS HAPPENING HERE?
+# create a list of tuples for average swing, so that we can more clearly see results
+# positive average swing implies the team is easy to play against
 # list sorted from hardest to easiest opponents
-average_swing_with_ids = [(i+1, average_swing[i]) for i in range(len(average_swing))]
+
+average_swing_with_ids = [(converter['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
 average_swing_with_ids.sort(key=lambda x: x[1])
 print(average_swing_with_ids)
 
-'''
-id-to-team-name conversion:
-converter = {'1':Arsenal', '2':'Bournemouth', '3': 'Brighton', '4':'Burnley', \n
-'5':'Chelsea', '6':'Crystal_Palace', '7':'Everton', '8':'Huddersfield', \n
-'9': 'Leicester', '10':'Liverpool', '11':'Manchester City', '12':'Manchester United',\n
-'13':'Newcastle', '14':'Southampton','15':'Spurs','16':'Stoke','17':'Swansea',\n
-'18':'Watford','19':'West Brom','20':'West Ham'}
 
-'''
+#plotting the swings on an easy-to-interpret axis.
+val = 0 # this is the value where you want the data to appear on the y-axis.
+plt.plot(np.zeros_like(average_swing) + val, average_swing,  'ro')
+plt.xticks([-1,0,1])
+plt.yticks(np.arange(-1.4, 1.2, 0.2))
+plt.ylabel('Average Points Swing')
+plt.title('Average Points Swing by Opponent')
+#next, annotating the points
+alternating_annos = [0.2*(-1)**i for i in range(20)] #so that labels do not overlap
+for i in range(20):
+    plt.annotate(average_swing_with_ids[i][0], xy = (alternating_annos[i], average_swing_with_ids[i][1]))
+plt.show()
