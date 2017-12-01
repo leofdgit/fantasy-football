@@ -36,11 +36,6 @@ with open("player_fixtures.txt", "r") as h:
 
 ###########################################################
 
-#print(other_db['2']['history'][7]['total_points']) #gives score in a particular round
-#print(other_db['2']['history'][7]['minutes']) #minutes played in a round
-#print(other_db['history'][2]['opponent_team']) #gives opponet's team id (1-20)
-#print((other_db['4']['history']))
-#print((dbase['elements'][0]))
 
 #id-to-team-name conversion - used later
 converter = {'1':'Arsenal', '2':'Bournemouth', '3': 'Brighton', '4':'Burnley',
@@ -60,6 +55,7 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
     2 corresponds to defenders.
     3 corresponds to midfielders.
     4 corresponds to attackers.
+    Returns a list of tuples (team, point swing).
     '''
     if args:
         arglist = [arg for arg in args]
@@ -95,23 +91,35 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
     # create a list of tuples for average swing, so that we can more clearly see results
     # positive average swing implies the team is easy to play against
     # list sorted from hardest to easiest opponents
+    return average_swing_with_ids
 
 
-
-
+def graph_pswings(*args):
+    '''
+    accepts optional args 1,2,3 and 4, where:
+    1 corresponds to goalkeepers.
+    2 corresponds to defenders.
+    3 corresponds to midfielders.
+    4 corresponds to attackers.
+    Prints a graph of point swings.
+    '''
+    if args:
+        arglist = [arg for arg in args]
+    else:
+        arglist = [1,2,3,4]
+    tuples = point_swings(*args)
+    average_swing = [i[1] for i in tuples]
     #plotting the swings on an easy-to-interpret axis.
     val = 0 # this is the value where you want the data to appear on the y-axis.
     plt.plot(np.zeros_like(average_swing) + val, average_swing,  'ro')
     plt.xticks([-1,0,1])
     plt.yticks(np.arange(round(min(average_swing),1)-0.3, round(max(average_swing)+0.35), 0.2))
     plt.ylabel('Average Points Swing')
-    plt.title('Average Points Swing by Opponent - Positions {}'.format(args))
+    plt.title('Average Points Swing by Opponent - Position(s) {}'.format(arglist))
     #next, annotating the points
     alternating_annos = [0.3*(-1)**i for i in range(20)] #so that labels do not overlap
     for i in range(20):
-        plt.annotate(average_swing_with_ids[i][0], xy = (alternating_annos[i], average_swing_with_ids[i][1]))
+        plt.annotate(tuples[i][0], xy = (alternating_annos[i], tuples[i][1]))
     plt.show()
-    return
-print(point_swings(1,2))
 
 ###TO-DO: FIX GRAPH LABELS OVERLAPPING
