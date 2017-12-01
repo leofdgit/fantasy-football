@@ -38,11 +38,13 @@ with open("player_fixtures.txt", "r") as h:
 
 
 #id-to-team-name conversion - used later
-converter = {'1':'Arsenal', '2':'Bournemouth', '3': 'Brighton', '4':'Burnley',
-'5':'Chelsea', '6':'Crystal_Palace', '7':'Everton', '8':'Huddersfield',
+#id-to-team-name conversion - used later
+def converter():
+    return ({'1':'Arsenal', '2':'Bournemouth', '3': 'Brighton', '4':'Burnley',
+'5':'Chelsea', '6':'Crystal Palace', '7':'Everton', '8':'Huddersfield',
 '9': 'Leicester', '10':'Liverpool', '11':'Manchester City', '12':'Manchester United',
 '13':'Newcastle', '14':'Southampton','15':'Spurs','16':'Stoke','17':'Swansea',
-'18':'Watford','19':'West Brom','20':'West Ham'}
+'18':'Watford','19':'West Brom','20':'West Ham'})
 
 ###########################################################
 
@@ -83,8 +85,8 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
             swings_list.append(swing)
         avg_swg = np.mean(swings_list)
         average_swing.append(avg_swg)
-
-    average_swing_with_ids = [(converter['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
+    co = converter()
+    average_swing_with_ids = [(co['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
     average_swing_with_ids.sort(key=lambda x: x[1])
 
     #    WHAT IS HAPPENING HERE?
