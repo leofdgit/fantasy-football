@@ -90,7 +90,6 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
 
     average_swing_with_ids = [(converter['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
     average_swing_with_ids.sort(key=lambda x: x[1])
-    print(average_swing_with_ids)
 
     #    WHAT IS HAPPENING HERE?
     # create a list of tuples for average swing, so that we can more clearly see results
@@ -106,7 +105,7 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
     plt.xticks([-1,0,1])
     plt.yticks(np.arange(round(min(average_swing),1)-0.3, round(max(average_swing)+0.35), 0.2))
     plt.ylabel('Average Points Swing')
-    plt.title('Average Points Swing by Opponent')
+    plt.title('Average Points Swing by Opponent - Positions {}'.format(args))
     #next, annotating the points
     alternating_annos = [0.3*(-1)**i for i in range(20)] #so that labels do not overlap
     for i in range(20):
