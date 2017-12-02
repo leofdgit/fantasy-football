@@ -36,4 +36,17 @@ def cap_chooser(team_id):
     ids = np.array([i['element'] for i in team_info['picks']])
     pred_scores = np.array([ppp_round(k) for k in ids])
     cap_choice = ids[np.argmax(pred_scores)]
+
     return cap_choice
+
+if __name__ == "__main__":
+    while True:
+        try:
+            team_id = int(input("Please enter your team id number: "))
+        except ValueError:
+            print("I didn't understand that. Try again.")
+            print()
+            continue
+        else:
+            break
+    print("You should choose", dbase['elements'][cap_chooser(team_id)-1]['web_name'], "to be your captain.")
