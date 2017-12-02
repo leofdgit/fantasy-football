@@ -6,50 +6,13 @@ import matplotlib.pyplot as plt
 import scipy.stats as st
 import math
 
-dbase = {} #one data dump
-###
-###
-# Only download data once per week
-###
-###
-'''
-other_db = requests.get(url='https://fantasy.premierleague.com/drf/bootstrap-static').json()
 
-with open("player_infos.txt", "w") as g:
-    g.write(json.dumps(other_db))
-'''
 with open("player_infos.txt", "r") as f:
-    dbase = json.load(f)
+    dbase = json.load(f) #data dump
 
-db_keys = [x for x in dbase.keys()]
-#keys are next-event, last-entry-event, stats, elements, teams, next_event_fixtures, current-event, game-settings, element-types, phases, events, stats_options, total-players
-
-###############
-###############
-###############
-###############
-###
-###
-# Only download data once per week
-###
-###
-'''
-other_db = requests.get(url='https://fantasy.premierleague.com/drf/element-summary/{}'.format(12)).json() #here 12 is the player number
-
-with open("player_fixtures.txt", "w") as g:
-    g.write(json.dumps(other_db))
-'''
 
 with open("player_fixtures.txt", "r") as h:
-    other_db = json.load(h)
-other_db_keys = [x for x in other_db.keys()]
-#has keys explain, fixtures, history_summary, fixtures_summary, history, history_past
-
-###############
-###############
-###############
-###############
-
+    other_db = json.load(h) #second data dump
 
 
 
