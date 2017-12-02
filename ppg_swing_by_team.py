@@ -6,23 +6,11 @@ import matplotlib.pyplot as plt
 import scipy.stats as st
 import math
 
-###
-###
-# Only download data once per week
-###
-###
 
-dbase = {}
-'''
-other_db = requests.get(url='https://fantasy.premierleague.com/drf/bootstrap-static').json()
 
-with open("player_infos.txt", "w") as g:
-    g.write(json.dumps(other_db))
-'''
 with open("player_infos.txt", "r") as f:
     dbase = json.load(f)
 
-db_keys = [x for x in dbase.keys()]
 
 with open("player_fixtures.txt", "r") as h:
     other_db = json.load(h)
