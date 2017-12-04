@@ -1,5 +1,7 @@
 # fantasy-football
 
+To use: download all files and place in single directory.
+
 The two .txt files are data dumps from the official website's APIs.
 ###To Python files, ensure that the two .txt files are in the same directory as Python files.
 
