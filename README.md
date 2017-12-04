@@ -41,16 +41,22 @@ o Captain_chooser.py and team_selector.py can be run in the command line (in sam
 o correlations_practice.py is a script that looks at player statistics, whose values are numerical, and tests which stat types most strongly correlate to a high points-per-game value. This is a tool that is only partially developed; correlation is just one method of judging similarity, and no work has yet been done to visualise the results.
 
 ####################
-TO-DO LIST
-####################
 
-o Update graphs on correlations_practice
+TO-DO AND GOALS
 
-o Have captain_chooser and team_selector take into account player injuries and bans (problem: data not always available)
+o Include graphics on correlations_practice.py and do deeper analysis.
 
-o Test effectiveness of prediction model and improve the model
+o Have captain_chooser and team_selector take into account player injuries and bans (problem: data not always available).
+
+o Test effectiveness of prediction model and improve the model.
 
 o Transfer suggestions: use points predictions to inform players how they can best use their transfers
 
-o Optimise code
+o Long-term: create a Pandas DataFrame containing pre-computed information. This way, multiple program runs will take less time.
 
+
+####################
+
+LICENSE
+
+MIT.
