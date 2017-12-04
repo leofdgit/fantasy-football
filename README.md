@@ -5,7 +5,6 @@
 
 DESCRIPTION
 
-####################
 
 This repository contains a collection of Python scripts which analyse data from Fantasy Premier League APIs. The aim of the project is to present interesting trends in the data and to use the data to create predictive tools that aid players of fantasy football accumulate more points.
 
@@ -14,7 +13,6 @@ This repository contains a collection of Python scripts which analyse data from 
 
 TABLE OF CONTENTS
 
-####################
 
 1. Installation
 2. User Guide
@@ -26,7 +24,6 @@ TABLE OF CONTENTS
 
 INSTALLATION
 
-####################
 
 Download each of the Python files in the repository and place in the same directory. It is not necessary to download the text files, as running database_grabber.py will produce up-to-date versions of these files in directory from which it is run.
 
@@ -34,8 +31,6 @@ Download each of the Python files in the repository and place in the same direct
 ####################
 
 USER GUIDE
-
-####################
 
 To use: download all files and place in single directory.
 
