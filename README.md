@@ -32,21 +32,13 @@ Download each of the Python files in the repository and place in the same direct
 
 USER GUIDE
 
-To use: download all files and place in single directory.
+o database_grabber.py scrapes the relevant APIs. Run this once per gameweek to ensure predictive information is up-to-date.
 
-The two .txt files are data dumps from the official website's APIs.
-###To Python files, ensure that the two .txt files are in the same directory as Python files.
+o ppg_swing_by_team.py computes how the points a player earns are affected by the opponent the player faces. The script takes the form of a function, whose arguments decide which positions are taken into account in the analysis. By default, running this script produces a graph showing points swings when players of each position are included in the analysis - script can be changed only include certain types of players. See in-script function descriptions.
 
+o Captain_chooser.py and team_selector.py can be run in the command line (in same directory as data dumps) to get optimal team selections and captaincy choices. The input required is the ID of a team, which can be found in the address bar when viewing the team in a browser: .....https://fantasy.premierleague.com/a/team/'ID'/event/.....
 
-correlations_practice.py looks at stats whose values are numerical and tests which ones most strongly correlate to a high points per game value.
-
-ppg_swing_by_team.py computes how points hauls are affected by opponent. The script takes the form of a function, whose arguments decide which positions are taken into account in the analysis.
-
-
-database_grabber.py scrapes the relevant API for info on players' previous games. (Run this once per gameweek to ensure predictive information is up-to-date).
-
-Captain_chooser.py and team_selector.py can be run in the command line (in same directory as data dumps) to get optimal team selections and captaincy choices based on model's analysis.
-
+o correlations_practice.py is a script that looks at player statistics, whose values are numerical, and tests which stat types most strongly correlate to a high points-per-game value. This is a tool that is only partially developed; correlation is just one method of judging similarity, and no work has yet been done to visualise the results.
 
 ####################
 TO-DO LIST
