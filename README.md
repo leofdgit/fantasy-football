@@ -19,8 +19,11 @@ TO-DO LIST
 ####################
 
 o Update graphs on correlations_practice
+
 o Have captain_chooser and team_selector take into account player injuries and bans (problem: data not always available)
+
 o Test effectiveness of prediction model and improve the model
+
 o Transfer suggestions: use points predictions to inform players how they can best use their transfers
 
 
