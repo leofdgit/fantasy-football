@@ -17,7 +17,8 @@ TABLE OF CONTENTS
 1. Installation
 2. User Guide
 3. Improvements and Goals
-4. License
+4. Collaboration
+5. License
 
 
 ####################
