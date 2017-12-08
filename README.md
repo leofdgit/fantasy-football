@@ -57,6 +57,13 @@ o Long-term: create a Pandas DataFrame containing pre-computed information. This
 
 ####################
 
+COLLABORATION
+
+If you find this project interesting and are interested in contributing then let me know - I am keen to work with others on this project.
+
+
+####################
+
 LICENSE
 
 MIT.
