@@ -48,7 +48,7 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
     Returns a list of tuples (team, point swing).
     '''
     if args:
-        arglist = [arg for arg in args]
+        arglist = list(args)
     else:
         arglist = [1,2,3,4]
     #create 20 lists of tuples, one for each team. The tuples will contain players' ppg and score against said team.
