@@ -45,7 +45,7 @@ o correlations_practice.py is a script that looks at player statistics, whose va
 
 TO-DO AND GOALS
 
-o Include graphics on correlations_practice.py and do deeper analysis.
+o Clean up correlations_practice code and do deeper analysis.
 
 o Have captain_chooser and team_selector take into account player injuries and bans (problem: data not always available).
 
