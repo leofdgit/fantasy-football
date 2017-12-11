@@ -68,11 +68,6 @@ for i in range(len(key_list)):
 ordered_corrs = sorted(corr_by_key.items(), key=lambda x: x[1])
 
 
-
-for label, value in ordered_corrs:
-    print(label, value)
-    print('')
-
 just_vals = []
 just_labs = []
 for label,value in ordered_corrs:
