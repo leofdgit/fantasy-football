@@ -3,6 +3,7 @@ import os
 import requests
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('seaborn-whitegrid')
 import scipy.stats as st
 import math
 
@@ -20,7 +21,8 @@ with open("player_fixtures.txt", "r") as h:
 key_list = [] ### Create a list of keys - the values associated with keys will be used to get correlations
               ### The keys we choose must have values that are numerical in order to compute correlations (later: correlation but with discrete variables, e.g. logistic regression)
 for key in dbase['elements'][0].keys():
-    if (key == 'points_per_game'):
+    if (key == 'points_per_game' or key == 'squad_number' or key == 'chance_of_playing_this_round' or key == 'chance_of_playing_next_round'
+    or key == 'loans_in' or key == 'loans_out' or key == 'loaned_out' or key == 'loaned_in' or key == 'ea_index'): #troublesome keys with 'bad' data
         continue
     if (type(dbase['elements'][0]['{}'.format(key)]) == bool):
         continue
@@ -58,14 +60,41 @@ for stat_list in numerical_stats:
 corr_by_key = {}
 for i in range(len(key_list)):
     if math.isnan(corr_list[i]): #remove troublesome entries
+
         continue
     corr_by_key['{}'.format(key_list[i])] = corr_list[i]
 
+
 ordered_corrs = sorted(corr_by_key.items(), key=lambda x: x[1])
 
-for name,value in ordered_corrs:
-    print(name, value)
+
+
+for label, value in ordered_corrs:
+    print(label, value)
     print('')
+
+just_vals = []
+just_labs = []
+for label,value in ordered_corrs:
+    if value > 0.7:
+        just_vals.append(value)
+        just_labs.append(label)
+
+
+
+val = 0 # this is the value where you want the data to appear on the y-axis.
+plt.plot(np.zeros_like(just_vals) + val, just_vals,  'ro')
+plt.xticks([-1,0,1])
+plt.yticks(np.arange(round(min(just_vals),1)-0.05, round(max(just_vals)+0.5), 0.2))
+plt.ylabel('Correlations to PPG - Top Indicators of Success')
+plt.title('Correlations of PPG to Other Data')
+#next, annotating the points
+
+alternating_annos = [0.3*(-1)**i for i in range(len(just_vals))] #so that labels do not overlap
+for i in range(len(just_vals)):
+    plt.annotate(just_labs[i], xy = (alternating_annos[i], just_vals[i]))
+
+plt.show()
 #interesting: influence is a better predictor of total core than ict index? but maybe this doesn't take into account different types of player
 #how would results change with restrictions on players included? for example those who play regularly
 
