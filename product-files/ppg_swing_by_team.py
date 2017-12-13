@@ -57,7 +57,7 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
     for i in range(1, len(dbase['elements'])+1):
         ppg = dbase['elements'][i-1]['points_per_game']
         for j in range(len(other_db['{}'.format(i)]['history'])):
-            if (other_db['{}'.format(i)]['history'][j]['minutes'] and  dbase['elements'][i-1]['element_type'] in arglist)> 0:
+            if (other_db['{}'.format(i)]['history'][j]['minutes'] > 30 and  dbase['elements'][i-1]['element_type'] in arglist):
                 opponent_id = other_db['{}'.format(i)]['history'][j]['opponent_team']
                 points_against_opponent = other_db['{}'.format(i)]['history'][j]['total_points']
                 tup = (float(ppg), points_against_opponent)
@@ -112,4 +112,4 @@ def graph_pswings(*args):
         plt.annotate(tuples[i][0], xy = (alternating_annos[i], tuples[i][1]))
     plt.show()
 
-###TO-DO: FIX GRAPH LABELS OVERLAPPING
+#print(graph_pswings())
