@@ -15,7 +15,8 @@ def team_points(team_id):
     '''
     Input team id and output player predicter to get most points following gameweek.
     '''
-    team_info = requests.get(url='https://fantasy.premierleague.com/drf/entry/{}/event/14/picks'.format(team_id)).json()
+    next_event = other_db['1']['explain'][0]['fixture']['event'] #get next fixture number from the relevant database
+    team_info = requests.get(url='https://fantasy.premierleague.com/drf/entry/{}/event/{}/picks'.format(team_id, next_event)).json()
     ids = np.array([i['element'] for i in team_info['picks']])
     pred_scores = [(cc.ppp_round(int(k)), int(k), dbase['elements'][k-1]['web_name'], dbase['elements'][k-1]['element_type']) for k in ids]
     total = np.round(sum([k[0] for k in pred_scores]),1)
