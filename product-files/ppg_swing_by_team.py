@@ -15,6 +15,7 @@ with open("player_infos.txt", "r") as f:
 with open("player_fixtures.txt", "r") as h:
     other_db = json.load(h)
 
+#print(dbase['elements'][0].keys())
 ###########################################################
 
 #cycle through each player and note their ppg.
@@ -74,10 +75,8 @@ def point_swings(*args):  #optional arguments are the positions that will be inc
         avg_swg = np.mean(swings_list)
         average_swing.append(avg_swg)
     co = converter()
-    average_swing_with_ids = {co['{}'.format(i+1)]: average_swing[i] for i in range(len(average_swing))}
-
-    '''= [(co['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
-    average_swing_with_ids.sort(key=lambda x: x[1])'''
+    average_swing_with_ids = [(co['{}'.format(i+1)], average_swing[i]) for i in range(len(average_swing))]
+    average_swing_with_ids.sort(key=lambda x: x[1])
 
     #    WHAT IS HAPPENING HERE?
     # create a list of tuples for average swing, so that we can more clearly see results
@@ -114,4 +113,4 @@ def graph_pswings(*args):
         plt.annotate(tuples[i][0], xy = (alternating_annos[i], tuples[i][1]))
     plt.show()
 
-#print(point_swings())
+#print(graph_pswings(3,4))
